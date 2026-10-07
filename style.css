@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#lista{
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 10px;
+}
+
+#lista li{
+    border: 2px solid black;
+    border-radius: 4px;
+    background-color: rgb(200, 212, 212);
+    padding: 20px;
+    width: 300px;
+}
