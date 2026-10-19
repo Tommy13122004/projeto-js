@@ -13,6 +13,7 @@ async function buscaUtilizadores (){
         mostraUtilizadores(resultado); 
     } catch (error) {
         console.error(error);
+        document.querySelector("#msgErros").innerHTML = '<p>Não foi possível carregar os utilizadores. Tenta novamente.</p>';
     }
 }
 
@@ -22,5 +23,13 @@ const inputPesquisa = document.querySelector('#pesquisa');
 
 inputPesquisa.addEventListener('input', () =>{
     const pesquisa = dadosPesquisa.filter(utilizador => utilizador.name.toLowerCase().includes(inputPesquisa.value.toLowerCase()));
-    mostraUtilizadores(pesquisa);
+    if (pesquisa.length === 0){
+        document.querySelector("#lista").innerHTML = '';
+        document.querySelector("#msgErros").innerHTML = '<p>Nenhum utilizador encontrado.</p>';
+    }
+    else{
+        mostraUtilizadores(pesquisa);
+        document.querySelector("#msgErros").innerHTML = '';
+    }
+    //mostraUtilizadores(pesquisa);
 })
